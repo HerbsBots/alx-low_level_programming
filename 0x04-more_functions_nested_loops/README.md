@@ -1,1 +1,2 @@
 isupper
+isdigit
