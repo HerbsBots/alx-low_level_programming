@@ -7,3 +7,4 @@ A good engineer thinks in reverse and asks himself about the stylistic consequen
 Half the lies they tell about me aren't true
 Winning is only half of it. Having fun is the other half
 Arrays are not pointers
+strcpy
