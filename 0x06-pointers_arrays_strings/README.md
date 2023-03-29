@@ -1,2 +1,3 @@
 strcat
 strncat
+strncpy
