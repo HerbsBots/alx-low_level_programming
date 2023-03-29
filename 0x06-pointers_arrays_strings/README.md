@@ -1,3 +1,4 @@
 strcat
 strncat
 strncpy
+strcmp
