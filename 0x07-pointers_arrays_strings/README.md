@@ -1,2 +1,1 @@
-memset
-
+memcpy
