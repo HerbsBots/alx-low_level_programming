@@ -1,2 +1,3 @@
 memset
 memcpy
+strchr
