@@ -1,1 +1,1 @@
-memseti
+memset
