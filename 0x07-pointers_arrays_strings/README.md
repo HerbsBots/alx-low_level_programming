@@ -1,3 +1,4 @@
 memset
 memcpy
 strchr
+strspn
