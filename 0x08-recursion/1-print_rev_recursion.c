@@ -5,6 +5,7 @@
  * @s: the string that is to be printed
  */
 
+/** takes in character as the argument */
 void _print_rev_recursion(char *s)
 {
 if (*s)
