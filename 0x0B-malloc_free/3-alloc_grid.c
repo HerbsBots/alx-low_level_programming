@@ -11,28 +11,26 @@
 
 int **alloc_grid(int width, int height)
 {
-int **twoD;
-int hgt_index, wid_index;
-if (width <= 0 || height <= 0)
+int **array, i, j;
+int len = width * height;
+if (len <= 0)
 return (NULL);
-twoD = malloc(sizeof(int *) * height);
-if (twoD == NULL)
+array = (int **)malloc(sizeof(int *) * height);
+if (array == NULL)
 return (NULL);
-for (hgt_index = 0; hgt_index < height; hgt_index++)
+for (i = 0; i < height; i++)
 {
-twoD[hgt_index] = malloc(sizeof(int) * width);
-if (two[hgt_index] == NULL)
+array[i] = (int *)malloc(sizeof(int) * width);
+if (array[i] == NULL)
 {
-for (; hgt_index >= 0; hgt_index--)
-free(twD[hgt_index]);
-free(twoD);
+for (i--; i >= 0; i--)
+free(array[i]);
+free(array);
 return (NULL);
 }
 }
-for (hgt_index = 0; hgt_index < height; hgt_index++)
-{
-for (wid_index = 0; wid_index < width; wid_index++)
-twoD[hgt_index][wid_index] = 0;
-}
-return (twoD);
+for (i = 0; i < height; i++)
+for (j = 0; j < width; j++)
+array[i][j] = 0;
+return (array);
 }
