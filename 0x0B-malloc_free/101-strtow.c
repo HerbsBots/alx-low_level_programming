@@ -6,9 +6,9 @@ int count_words(char *str);
 char **strtow(char *str);
 
 /**
- * word_len - locates the index marking
+ * word_len - locates the index marking the end of a string
  * @str: the string to be searched
- * Return: the index marking the end of the initial word pointed to by a string
+ * Return: the index marking the end if the intial word pointed to by a string
  */
 
 int word_len(char *str)
@@ -23,11 +23,10 @@ return (len);
 }
 
 /**
- * count_words - counts the number of words contained within a string
+ * count_words - counts the numver if wrds
  * @str: the string to be searched
  * Return: the number of words contained within a string
  */
-
 
 int count_words(char *str)
 {
@@ -47,9 +46,9 @@ return (words);
 
 /**
  * strtow - splits a string into words
- * @str: the string to be spilt
+ * @str: the string to be split
  * Return: if str = NULL, str = "", or the function fails - NULL
- * Otherwise - a pointer to an array of strings (words)
+ * otherwise - a pointer to an array of a string (words)
  */
 
 char **strtow(char *str)
@@ -79,7 +78,7 @@ return (NULL);
 }
 for (l = 0; l < letters; l++)
 strings[w][l] = str[index++];
-sstrings[w][l] = '\0';
+strings[w][l] = '\0';
 }
 strings[w] = NULL;
 return (strings);
