@@ -3,3 +3,4 @@ Trust no one
 string_nconcat
 calloc
 array_range
+realloc
