@@ -1,85 +1,146 @@
 #include "main.h"
-#include <stdlib.h>
-
-int word_len(char *str);
-int count_words(char *str);
-char **strtow(char *str);
 
 /**
- * word_len - locates the index marking the end of a string
- * @str: the string to be searched
- * Return: the index marking the end if the intial word pointed to by a string
+ * _print - moves a string one place to the left and prints the string
+ * @str: string to move
+ * @l: size of string
+ *
+ * Return: void
  */
 
-int word_len(char *str)
+void _print(char *str, int l)
 {
-int index = 0, len = 0;
-while (*(str + index) && *(str + index) != ' ')
+int i, j;
+i = j = 0;
+while (i < l)
 {
-len++;
-index++;
+if (str[i] != '0')
+j = 1;
+if (j || i == l - 1)
+_putchar(str[i]);
+i++;
 }
-return (len);
-}
-
-/**
- * count_words - counts the numver if wrds
- * @str: the string to be searched
- * Return: the number of words contained within a string
- */
-
-int count_words(char *str)
-{
-int index = 0, words = 0, len = 0;
-for (index = 0; *(str + index); index++)
-len++;
-for (index = 0; index < len; index++)
-{
-if (*(str + index) != ' ')
-{
-words++;
-index += word_len(str + index);
-}
-}
-return (words);
+_putchar('\n');
+free(str);
 }
 
 /**
- * strtow - splits a string into words
- * @str: the string to be split
- * Return: if str = NULL, str = "", or the function fails - NULL
- * otherwise - a pointer to an array of a string (words)
+ * mul - multiplies a char with a string and places the answer into dest
+ * @n: char to multiply
+ * @num: string to multiply
+ * @num_index: last non NULL index of num
+ * @dest: destination of multiplication
+ * @dest_index: hihest index to start addition
+ *
+ * Return: pointer to dest, or NULL on failure
  */
 
-char **strtow(char *str)
+char *mul(char n, char *num, int num_index, char *dest, int dest_index)
 {
-char **strings;
-int index = 0, words, w, letters, l;
-if (str == NULL || str[0] == '\0')
-return (NULL);
-words = count_words(str);
-if (words == 0)
-return (NULL);
-strings = malloc(sizeof(char *) * (words + 1));
-if (strings == NULL)
-return (NULL);
-for (w = 0; w < words; w++)
+int j, k, mul, mulrem, add, addrem;
+mulrem = addrem = 0;
+for (j = num_index, k = dest_index; j >= 0; j--, k--)
 {
-while (str[index] == ' ')
-index++;
-letters = word_len(str + index);
-strings[w] = malloc(sizeof(char) * (letters + 1));
-if (strings[w] == NULL)
+mul = (n - '0') * (num[j] - '0') + mulrem;
+mulrem = mul / 10;
+add = (dest[k] - '0') + (mul % 10) + addrem;
+addrem = add / 10;
+dest[k] = add % 10 + '0';
+}
+for (addrem += mulrem; k >= 0 && addrem; k--)
 {
-for (; w >= 0; w--)
-free(strings[w]);
-free(strings);
+add = (dest[k] - '0') + addrem;
+addrem = add / 10;
+dest[k] = add % 10 + '0';
+}
+if (addrem)
+{
 return (NULL);
 }
-for (l = 0; l < letters; l++)
-strings[w][l] = str[index++];
-strings[w][l] = '\0';
+return (dest);
 }
-strings[w] = NULL;
-return (strings);
+
+/**
+ * check_for_digits - checks the arguments to ensure they are digits
+ * @av: pointer to arguments
+ *
+ * Return: 0 if digits, 1 if not
+ */
+
+int check_for_digits(char **av)
+{
+int i, j;
+for (i = 1; i < 3; i++)
+{
+for (j = 0; av[i][j]; j++)
+{
+if (av[i][j] < '0' || av[i][j] > '9')
+return (1);
+}
+}
+return (0);
+}
+
+/**
+ * init - initializes a string
+ * @str: string to initialize
+ * @l: length of the string
+ *
+ * Return: void
+ */
+
+void init(char *str, int l)
+{
+int i;
+for (i = 0; i < l; i++)
+str[i] = '0';
+str[i] = '\0';
+}
+
+/**
+ * main - multiply two numbers
+ * @argc: number of arguments
+ * @argv: argument vector
+ *
+ * Return: zero, or exit status of 98 if failure
+ */
+
+int main(int argc, char *argv[])
+{
+int l1, l2, ln, ti, i;
+char *a;
+char *t;
+char e[] = "Error\n";
+if (argc != 3 || check_for_digits(argv))
+{
+for (ti = 0; e[ti]; ti++)
+_putchar(e[ti]);
+exit(98);
+}
+for (l1 = 0; argv[i][l1]; l1++)
+;
+for (l2 = 0; argv[2][l2]; l2++)
+;
+ln = l1 + l2 + 1;
+a = malloc(ln *sizeof(char));
+if (a == NULL)
+{
+for (ti = 0; e[ti]; ti++)
+_putchar(e[ti]);
+exit(98);
+}
+init(a, ln - 1);
+for (ti = l2 - 1, i = 0; ti >= 0; ti--, i++)
+{
+t = mul(argv[2][ti], argv[1], l1 - 1, a, (ln - 2) - i);
+if (t == NULL)
+{
+for (ti = 0; e[ti]; ti++)
+_putchar(e[ti]);
+free(a);
+exit(98);
+}
+}
+_print(a, ln - 1);
+return (0);
 }
