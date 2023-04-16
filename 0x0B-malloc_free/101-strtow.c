@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _print - moves a string one place to the left and prints the string
+ * _print - moves a string one place to the left
  * @str: string to move
- * @l: size of string
+ * @l: sizeof string
  *
  * Return: void
  */
@@ -25,12 +25,12 @@ free(str);
 }
 
 /**
- * mul - multiplies a char with a string and places the answer into dest
+ * mul - multiplies a char with a string and places the answer inti dest
  * @n: char to multiply
  * @num: string to multiply
  * @num_index: last non NULL index of num
  * @dest: destination of multiplication
- * @dest_index: hihest index to start addition
+ * @dest_index: hihgest index to start addition
  *
  * Return: pointer to dest, or NULL on failure
  */
@@ -58,10 +58,9 @@ if (addrem)
 return (NULL);
 }
 return (dest);
-}
 
 /**
- * check_for_digits - checks the arguments to ensure they are digits
+ * check_for_digits - checks the arguments to ensure that they are digits
  * @av: pointer to arguments
  *
  * Return: 0 if digits, 1 if not
@@ -84,7 +83,7 @@ return (0);
 /**
  * init - initializes a string
  * @str: string to initialize
- * @l: length of the string
+ * @l: length of string
  *
  * Return: void
  */
@@ -100,7 +99,7 @@ str[i] = '\0';
 /**
  * main - multiply two numbers
  * @argc: number of arguments
- * @argv: argument vector
+ * @argv: arguments vector
  *
  * Return: zero, or exit status of 98 if failure
  */
@@ -117,7 +116,7 @@ for (ti = 0; e[ti]; ti++)
 _putchar(e[ti]);
 exit(98);
 }
-for (l1 = 0; argv[i][l1]; l1++)
+for (l1 = 0; argv[1][l1]; l1++)
 ;
 for (l2 = 0; argv[2][l2]; l2++)
 ;
