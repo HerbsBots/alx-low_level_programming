@@ -3,10 +3,10 @@
 #include "main.h"
 
 /**
- * is_digit - check if a string containing a non-digit character
+ * is_digit - check if a string containing a non-digit char
  * @s: string to be evaluated
  *
- * Return: 0 if a non-digit is found, i otherwise
+ * Return: 0 if a non-digit is found, 1 otherwise
  */
 
 int is_digit(char *s)
@@ -39,21 +39,21 @@ return (i);
 }
 
 /**
- * errors - hanldes errors for main
+ * errors - handles errors for main
  */
 
-void errors(void)
+void erros(void)
 {
 printf("Errors\n");
 exit(98);
 }
 
 /**
- * main - multiplies two +ve numbers
+ * main- multiplies two +ve numbers
  * @argc: number of arguments
  * @argv: array of arguments
  *
- * Return: always 0 (success)
+ * Return: always 0 on success
  */
 
 int main(int argc, char *argv[])
@@ -62,7 +62,7 @@ char *s1, *s2;
 int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 s1 = argv[1], s2 = argv[2];
 if (argc != 3 || !is_digit(s1) || !is_digit(s2))
-errors();
+erros();
 len1 = _strlen(s1);
 len2 = _strlen(s2);
 len = len1 + len2 + 1;
