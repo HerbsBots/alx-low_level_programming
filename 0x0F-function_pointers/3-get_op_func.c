@@ -1,14 +1,13 @@
-#include "s-calc.h"
-#include <stdlib.h>
+#include "3-calc.h"
 
 /**
  * get_op_func - selects the correct function to perform
  * the operation asked by the user
  * @s: the operator passed as argument
  *
- * Return: a pointer to the function corresponding
- * to the operator given as a parameter
+ * Return: a pointer to the function corresponding to the operator
  */
+
 
 int (*get_op_func(char *s))(int, int)
 {
@@ -21,8 +20,11 @@ op_t ops[] = {
 {NULL, NULL},
 };
 int i = 0;
-while (ops[i].op != NULL && *(ops[i].op) != *s)
+while (i < 10)
+{
+if (s[0] == ops->op[i])
+break;
 i++;
-return (ops[i].f);
 }
-
+return (ops[i / 2].f);
+}

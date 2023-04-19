@@ -1,16 +1,11 @@
 #include "3-calc.h"
-int op_add(int a, int b);
-int op_sub(int a, int b);
-int op_mul(int a, int b);
-int op_div(int a, int b);
-int op_mod(int a, int b);
 
 /**
- * op_add - Returns the sum of the numbers
- * @a: the first number
- * @b: the second number
+ * op_add - addition of two numbers
+ * @a: first number
+ * @b: second number
  *
- * Return: the sum of a and b
+ * Return: add
  */
 
 int op_add(int a, int b)
@@ -19,11 +14,11 @@ return (a + b);
 }
 
 /**
- * op_sub - Return the diofference of two numbers
- * @a: the first number
- * @b: the second number
+ * op_sub - subtracts two numbers
+ * @a: first number
+ * @b: second number
  *
- * Return: the difference of a and b
+ * Return: difference
  */
 
 int op_sub(int a, int b)
@@ -32,11 +27,11 @@ return (a - b);
 }
 
 /**
- * op_mul - Returns the product of two numbers
- * @a: the first number
- * @b: the second number
+ * op_mul - multiplies two numbers
+ * @a: first number
+ * @b: second number
  *
- * Return: the product of a and b
+ * Return: multiplication
  */
 
 int op_mul(int a, int b)
@@ -45,27 +40,37 @@ return (a * b);
 }
 
 /**
- * op_div - Returns the divison of two numbers
- * @a: the first number
- * @b: the second number
+ * op_div - divides two numebrs
+ * @a: first number
+ * @b: second numer
  *
- * Return: the quotient of a and b
+ * Return: division
  */
 
 int op_div(int a, int b)
 {
+if (b == 0)
+{
+printf("Error\n");
+exit(100);
+}
 return (a / b);
 }
 
 /**
- * op_mod - Returns the remainder of the divison of two numbers
- * @a: the first number
- * @b: the second number
+ * op_mod - claculates the module of two numbers
+ * @a: first number
+ * @b: second number
  *
- * Return: the remainder of the divison of a by b
+ * Return: reminder of the divison
  */
 
 int op_mod(int a, int b)
 {
+if (b == 0)
+{
+printf("Error\n");
+exit(100);
+}
 return (a % b);
 }
