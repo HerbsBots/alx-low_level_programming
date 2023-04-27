@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
@@ -22,4 +21,3 @@ nelem++;
 }
 return (nelem);
 }
-
