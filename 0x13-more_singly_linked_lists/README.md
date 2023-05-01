@@ -8,3 +8,4 @@ Free
 Pop
 Get node at index
 Sum list
+Insert
