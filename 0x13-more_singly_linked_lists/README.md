@@ -10,3 +10,4 @@ Get node at index
 Sum list
 Insert
 Delete at index
+Reverse list
