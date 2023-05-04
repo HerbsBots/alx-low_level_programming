@@ -1,4 +1,4 @@
-#include "mainh"
+#include "main.h"
 
 /**
  * clear_bit - sets the value of a bit to 0
@@ -12,13 +12,10 @@
  *
  */
 
-int clear_bit(unsigned long int *n, unisgned int index)
+int clear_bit(unsigned long int *n, unsigned int index)
 {
-unsigned int m;
-if (index > 63)
+if (index >= (sizeof(unsigned long int) * 8))
 return (-1);
-m = 1 << index;
-if (*n & m)
-*n ^= m;
+*n &= ~(1 << index);
 return (1);
 }
