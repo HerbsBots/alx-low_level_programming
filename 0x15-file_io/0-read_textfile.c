@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * read_textfile - reads a text file and prins the letters
+ * read_textfile - reads a text file and prints the letters
  *
  * @filename: filename
  *
- * @letters: numbers of ,etters printed
+ * @letters: numbers of letters printed
  *
- * Return: numbers of letters printed, if fails, return 0
+ * Return: numbers of letters printed, it fails return 0
  *
  */
 
