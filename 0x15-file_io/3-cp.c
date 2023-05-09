@@ -4,7 +4,7 @@
 /**
  * error_file - checks if files can be opened
  *
- * @file_from: file_form
+ * @file_from: file_from
  *
  * @file_to: file_to
  *
@@ -18,23 +18,26 @@ void error_file(int file_from, int file_to, char *argv[])
 {
 if (file_from == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+dprintf(STDERR_FILENO,
+"Error: Can't read from file %s\n", argv[1]);
 exit(98);
 }
 if (file_to == -1)
 {
-dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+dprintf(STDERR_FILENO,
+"Error: Can't write to %s\n", argv[2]);
 exit(99);
 }
 }
 
 /**
- * main- check the code
+ * main - check the code
  *
  * @argc: number of arguments
+ *
  * @argv: arguments vector
  *
- * Return: Always o
+ * Return: Always 0
  *
  */
 
@@ -45,7 +48,7 @@ ssize_t nchars, nwr;
 char buf[1024];
 if (argc != 3)
 {
-dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+dprintf(STDERR_FILENO, "%s\n", "Usage: cpfile_from file_to");
 exit(97);
 }
 file_from = open(argv[1], O_RDONLY);
@@ -65,13 +68,14 @@ err_close = close(file_from);
 if (err_close == -1)
 {
 dprintf(STDERR_FILENO,
-"Error: can't close fd %d\n", file_from);
+"Error: Can't close fd %d\n", file_from);
 exit(100);
 }
 err_close = close(file_to);
 if (err_close == -1)
 {
-dprintf(STDERR_FILENO, "Error: can't close fd %d\n", file_from);
+dprintf(STDERR_FILENO,
+"Error: Can't close fd %d\n", file_from);
 exit(100);
 }
 return (0);
